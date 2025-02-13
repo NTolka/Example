@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-// Xepyz
 // var a int = 4
 // var b int = 6
 // var n int = 2
