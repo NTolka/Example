@@ -6,138 +6,138 @@ import (
 	"strings"
 )
 
-// var a int = 4
-// var b int = 6
-// var n int = 2
-// var z string = " "
-// var c float64 //no use
-// var t string
-// var e []int
-// var f []int
-// var g []string
-
 func main() {
-	t = "one two three four five six seven eight nine ten"
-	fmt.Println(t)
-	fmt.Println(sum(a, b), "//1. сложить два числа `a` и `b`")                     //1. сложить два числа `a` и `b`
-	fmt.Println(itr(a, b), "//2. увеличить число `a` на `b` итераций с шагом `n`") //2. увеличить число `a` на `b` итераций с шагом `n`
-	fmt.Println(itoa(a), "//3. превести число `a` к строке")                       //3. превести число `a` к строке
-	fmt.Println(fill(e, a), "//4. заполнить срез `e` на `a` символов")             //4. заполнить срез `e` на `a` символов
-	e = fill(e, a)
-	f = e
-	fmt.Println(addslice(t, z), "//5. залить текст `t` в слайс по разделителю `z`") //5. залить текст `t` в слайс по разделителю `z` ("\n"," ",".")
-	g = slicecenterspace(g, n)                                                      //6. вырезать кусок слайса
-	fmt.Println(g, "//6. вырезать кусок слайса")
-	g = slicespace(g, a) //7. обрезать слайс.
-	fmt.Println(g, "//7. обрезать слайс.")
-	fmt.Println(find(e, a), "//5. индекс числа `a` в срезе `e`")             //8. индекс числа `a` в срезе `e`
-	fmt.Println(sumslice(e, f), "//6. сложить срезы `e` и `f` в один слайс") //9. сложить срезы `e` и `f` в один слайс
-	fmt.Println(summas(e, f), "//7. сложить по элементно срезы `e` и `f`")   //10. сложить по элементно срезы `e` и `f`
-	fmt.Println(revers(e), "//8. переворот слайса `e`")                      //11. переворот слайса `e`
-	fmt.Println(setmap(g, e), " //9. сложение срезов `e` и `g` в мапу")      //12. сложение срезов `e` и `g` в мапу //Уникальность ключей:Ключи в мапе должны быть уникальными. Если в срезе keys есть дубликаты, последнее значение перезапишет предыдущее.
+	var mulA int = 4
+	var mulB int = 6
+	var mulN int = 2
+	var someString string = "one two three four five six seven eight nine ten"
+	var price []int
+	var point []int
+	var list []string
+
+	fmt.Println(sum(mulA, mulB), "\t 1. вывести сумму чисел")                               // 1. вывести сумму чисел
+	fmt.Println(itr(mulA, mulB), "\t 2. увеличить число на выбаное кол-во итераций")        // 2. увеличить число на выбаное кол-во итераций
+	fmt.Println(itoa(mulA), "\t 3. привести число к строке")                                // 3. привести число к строке
+	fmt.Println(fillSlice(price, mulA), "\t 4. заполнить слайс на выбаное кол-во символов") // 4.заполнить слайс на выбаное кол-во символов
+	price = fillSlice(price, mulA)
+	point = fillSlice(point, mulA)
+	fmt.Println(addSlice(someString), "\t 5. залить текст в слайс c разделением по ` `") // 5. залить текст в слайс c разделением по " "
+	list = addSlice(someString)
+	list1 := list
+	list = slicecenterspace(list, mulA, mulN) // 6. вырезать центр слайса c явным указанием начала и окончания элементов
+	fmt.Println(list, "\t 6. вырезать центр слайса c явным указанием начала и окончания элементов")
+	list = sliceSpaceEnd(list, mulA) // 7. обрезать слайс с конца до индекса
+	fmt.Println(list, "\t 7. обрезать слайс с конца до индекса")
+	list1 = sliceSpaceBegin(list1, mulN) // 8. обрезать слайс с начала до индекса
+	fmt.Println(list1, "\t 8. обрезать слайс с начала до индекса")
+	list1 = sliceSpaceBeginEnd(list1, mulN, mulN) // 9. обрезать слайс с начала и конца по индексам
+	fmt.Println(list1, "\t 9. обрезать слайс с начала и конца по индексам")
+	fmt.Println(findIndex(price, mulA), "\t 10. поиск индекса числа в слайсе")  // 10. поиск индекса числа в слайсе
+	fmt.Println(sumslice(price, point), "\t 11. добавить слайс в слайс")        // 11. добавить слайс в слайс
+	fmt.Println(summas(price, point), "\t 12. сложить по элементно два слайса") // 12. сложить по элементно два слайса
+	fmt.Println(revers(price), "\t 13. переворот слайса")                       // 13. переворот слайса
+	fmt.Println(setmap(list, point), " \t 14. создание мапы из двух слайсов")   // 14. создание мапы из двух слайсов //Уникальность ключей:Ключи в мапе должны быть уникальными. Если в срезе keys есть дубликаты, последнее значение перезапишет предыдущее.
+
 }
 
-// 1. сложить два числа `a` и `b`
-func sum(...int) int {
+// 1. вывести сумму чисел
+func sum(a, b int) int {
 	return a + b
 }
 
-// 2. увеличить число `a` на `b` итераций с шагом `n`
+// 2. увеличить число на выбаное кол-во итераций
 func itr(a, b int) int {
 	for i := a; i <= b; i++ {
-		a = i + n
+		a = i
 	}
 	return a
 }
 
-// 3. превести число `a` к строке
+// 3. привести число к строке
 func itoa(a int) string {
 	x := strconv.Itoa(a)
 	return x
 }
 
-// 4. заполнить срез `e` на `a` символов
-func fill(e []int, a int) []int {
+// 4.заполнить слайс на выбаное кол-во символов
+func fillSlice(slice []int, a int) []int {
 	for i := 1; i <= a; i++ {
-		e = append(e, i)
+		slice = append(slice, i)
 	}
-	return e
+	return slice
 }
 
-// 5. залить текст `t` в слайс по разделителю `z` ("\n"," ",".")
-func addslice(t, z string) []string {
-	g = strings.Split(t, z)
-	return g
+// 5. залить текст в слайс c разделением по " "
+func addSlice(str string) []string {
+	slice := strings.Split(str, " ")
+	return slice
 }
 
-// 6. вырезать кусок слайса
-func slicecenterspace(g []string, n int) []string {
-	j := make([]string, 0, 10)
-	j = g[len(g)-n:] // g[8:]
-	g = append(g[:5], j...)
-	return g
+// 6. вырезать центр слайса c явным указанием начала и окончания элементов
+func slicecenterspace(slice []string, begin, end int) []string {
+	slicecopy := make([]string, 0, len(slice))
+	slicecopy = slice[len(slice)-end:]
+	slice = append(slice[:begin], slicecopy...)
+	return slice
 }
 
-// 7. обрезать слайс.
-func slicespace(g []string, a int) []string {
-	return g[:a]
+// 7. обрезать слайс с конца до индекса
+func sliceSpaceEnd(slice []string, i int) []string {
+	return slice[:i]
 }
 
-// 8. поиск числа `a` в срезе `e` с указаием индекса
-func find(e []int, a int) int {
-	for i, v := range e {
+// 8. обрезать слайс с начала до индекса
+func sliceSpaceBegin(slice []string, i int) []string {
+	return slice[i:]
+}
+
+// 9. обрезать слайс с начала и конца по индексам
+func sliceSpaceBeginEnd(slice []string, i, i2 int) []string {
+	return slice[i:i2]
+}
+
+// 10. поиск индекса числа в слайсе
+func findIndex(slice []int, a int) int {
+	for i, v := range slice {
 		if v == a {
 			return i
 		}
 	}
-	return 0
+	return -1
+} //Println непринимает 2 параметра. Тогда надо было делать так: inxex, value := findIndex(slice []int, a int)(int,int)
+
+// 11. добавить слайс в слайс
+func sumslice(slice, slice2 []int) []int {
+	slice = append(slice, slice2...)
+	return slice
 }
 
-// 9. сложить срезы `e` и `f` в один слайс
-func sumslice(e, f []int) []int {
-	e = append(e, f...)
-	return e
-}
-
-// 10. сложить по элементно срезы `e` и `f`
-func summas(e, f []int) []int {
-	res := make([]int, len(e))
-	if len(e) == len(f) {
-		for i := range e {
-			res[i] = e[i] + f[i]
+// 12. сложить по элементно два слайса
+func summas(slice, slice2 []int) []int {
+	res := make([]int, len(slice)) //все создано верно. Иначе была ошибка: panic: runtime error: index out of range [0] with length 0
+	if len(slice) == len(slice2) {
+		for i := range slice {
+			res[i] = slice[i] + slice2[i]
 		}
 		return res
 	}
 	return nil
 }
 
-// 11. переворот слайса `e`
-func revers(e []int) []int {
-	x := len(e)
-	for i := 0; i < len(e)/2; i++ {
-		e[i], e[x-1-i] = e[x-1-i], e[i]
+// 13. переворот слайса
+func revers(slice []int) []int {
+	cntindex := len(slice)
+	for i := 0; i < len(slice)/2; i++ {
+		// Меняем местами элементы, пока не дойдем до середины
+		slice[i], slice[cntindex-1-i] = slice[cntindex-1-i], slice[i]
 	}
-	return e
-	// 	// Определяем начальный и конечный индексы
-	// 	left, right := 0, len(e)-1
-
-	// // Меняем местами элементы, пока не дойдем до середины
-	//
-	//	for left < right {
-	//		e[left], e[right] = e[right], e[left]
-	//		left++
-	//		right--
-	//	}
-	//
-	// return e
+	return slice
 }
 
-// 12. сложение срезов `e` и `g` в мапу
-func setmap(g []string, e []int) map[string]int {
-	if len(e) == len(f) {
-		keys := g
-		values := e
-		result := make(map[string]int)
+// 14. создание мапы из двух слайсов
+func setmap(keys []string, values []int) map[string]int {
+	if len(keys) == len(values) {
+		result := make(map[string]int, len(keys))
 		for i := 0; i < len(keys); i++ {
 			result[keys[i]] = values[i]
 		}
