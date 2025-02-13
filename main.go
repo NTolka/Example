@@ -6,15 +6,16 @@ import (
 	"strings"
 )
 
-var a int = 4
-var b int = 6
-var n int = 2
-var z string = " "
-var c float64 //no use
-var t string
-var e []int
-var f []int
-var g []string
+// git checkout -b init
+// var a int = 4
+// var b int = 6
+// var n int = 2
+// var z string = " "
+// var c float64 //no use
+// var t string
+// var e []int
+// var f []int
+// var g []string
 
 func main() {
 	t = "one two three four five six seven eight nine ten"
