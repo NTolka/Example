@@ -6,6 +6,18 @@ import (
 	"strings"
 )
 
+/*
+//Незабыть создать функцию конструктор и методы.
+type Person struct{
+	Name string
+	Age int
+	geteroFriend bool
+	balance struct{
+		Credit float32
+		Point int
+}
+}*/
+
 func main() {
 	var mulA int = 4
 	var mulB int = 6
